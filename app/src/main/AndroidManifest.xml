@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="comq.example.raymond.autoinsurance">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
+        <activity
+            android:name=".Register"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UserHome"
+            android:label="@string/title_activity_user_home"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".RegisterCar"
+            android:parentActivityName=".UserHome" />
+        <activity
+            android:name=".UInsuredCars"
+            android:parentActivityName=".UserHome" />
+        <activity
+            android:name=".InsurancePolicy"
+            android:parentActivityName=".UserHome" />
+        <activity
+            android:name=".UProfile"
+            android:parentActivityName=".UserHome" />
+        <activity
+            android:name=".CustomerCare"
+            android:parentActivityName=".UserHome" />
+        <activity
+            android:name=".AdminHome"
+            android:label="@string/title_activity_admin_home"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".InsuredCarsDetails"
+            android:parentActivityName=".InsuranceApplications"/>
+        <activity android:name=".InsuranceApplications"
+            android:parentActivityName=".AdminHome"/>
+    </application>
+
+</manifest>

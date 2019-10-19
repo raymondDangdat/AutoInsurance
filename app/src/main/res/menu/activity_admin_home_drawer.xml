@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_insurance_application"
+            android:icon="@drawable/ic_car"
+            android:title="Insurance Applications" />
+        <item
+            android:id="@+id/nav_cars_insured"
+            android:icon="@drawable/ic_cars"
+            android:title="Cars Insured" />
+        <item
+            android:id="@+id/nav_insurance_policy"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Insurance Policy" />
+        <item
+            android:id="@+id/nav_customer_care"
+            android:icon="@drawable/ic_customer_care"
+            android:title="Customer Complaints" />
+    </group>
+
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/nav_change_password"
+                android:icon="@drawable/ic_lock"
+                android:title="Change Password" />
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/ic_settings"
+                android:title="Profile" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_exit"
+                android:title="Sign Out" />
+        </menu>
+    </item>
+
+</menu>

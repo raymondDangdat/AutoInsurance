@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "550930607837",
+    "firebase_url": "https://fyb-projects.firebaseio.com",
+    "project_id": "fyb-projects",
+    "storage_bucket": "fyb-projects.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550930607837:android:41381e91895fac6881b534",
+        "android_client_info": {
+          "package_name": "comq.example.raymond.autoinsurance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550930607837-hfsavjqef8ou44bn08vhp9dojbphelgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG9xAFDI0_G0XPMeNxN_fp0OtqlHvB-Po"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550930607837-hfsavjqef8ou44bn08vhp9dojbphelgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550930607837:android:2dbd61eed224565481b534",
+        "android_client_info": {
+          "package_name": "comq.example.raymond.crimereport2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550930607837-hfsavjqef8ou44bn08vhp9dojbphelgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG9xAFDI0_G0XPMeNxN_fp0OtqlHvB-Po"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550930607837-hfsavjqef8ou44bn08vhp9dojbphelgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550930607837:android:bba994c8c279cece81b534",
+        "android_client_info": {
+          "package_name": "comq.example.raymond.studentcomplaintsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550930607837-hfsavjqef8ou44bn08vhp9dojbphelgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG9xAFDI0_G0XPMeNxN_fp0OtqlHvB-Po"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550930607837-hfsavjqef8ou44bn08vhp9dojbphelgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

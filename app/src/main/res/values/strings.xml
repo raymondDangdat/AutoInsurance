@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AutoInsurance</string>
+    <string name="yet_to_register_click">Yet to register? Click here</string>
+    <string name="title_activity_user_home">Auto Insurance System</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="number_of_seats">
+        <item>Number of Seats</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+    </string-array>
+    <string name="title_activity_admin_home">Auto Insurance System</string>
+</resources>
