@@ -47,10 +47,13 @@
             android:name=".AdminHome"
             android:label="@string/title_activity_admin_home"
             android:theme="@style/AppTheme" />
-        <activity android:name=".InsuredCarsDetails"
-            android:parentActivityName=".InsuranceApplications"/>
-        <activity android:name=".InsuranceApplications"
-            android:parentActivityName=".AdminHome"/>
+        <activity
+            android:name=".InsuredCarsDetails"
+            android:parentActivityName=".InsuranceApplications" />
+        <activity
+            android:name=".InsuranceApplications"
+            android:parentActivityName=".AdminHome" />
+        <activity android:name=".AdminInsuranceApplicationDetails"></activity>
     </application>
 
 </manifest>

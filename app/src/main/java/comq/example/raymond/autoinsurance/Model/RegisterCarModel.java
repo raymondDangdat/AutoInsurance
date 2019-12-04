@@ -8,16 +8,20 @@ public class RegisterCarModel {
     private String occupation;
     private String disability;
     private String make;
+    private String papers;
     private String model, capacity, value, use, policyType, noPlate;
     private String noOfSeat;
+    private String status;
 
     public RegisterCarModel() {
     }
 
-    public RegisterCarModel(long insuranceDate, String uId, String car_pic, String fName,
-                            String lName, String oName, String occupation, String disability,
-                            String make, String model, String capacity, String value,
-                            String use, String policyType, String noPlate, String noOfSeat) {
+    public RegisterCarModel(long insuranceDate, String uId, String car_pic,
+                            String fName, String lName, String oName, String
+                                    occupation, String disability, String make,
+                            String papers, String model, String capacity, String value,
+                            String use, String policyType, String noPlate, String
+                                    noOfSeat, String status) {
         this.insuranceDate = insuranceDate;
         this.uId = uId;
         this.car_pic = car_pic;
@@ -27,6 +31,7 @@ public class RegisterCarModel {
         this.occupation = occupation;
         this.disability = disability;
         this.make = make;
+        this.papers = papers;
         this.model = model;
         this.capacity = capacity;
         this.value = value;
@@ -34,6 +39,7 @@ public class RegisterCarModel {
         this.policyType = policyType;
         this.noPlate = noPlate;
         this.noOfSeat = noOfSeat;
+        this.status = status;
     }
 
     public long getInsuranceDate() {
@@ -108,6 +114,14 @@ public class RegisterCarModel {
         this.make = make;
     }
 
+    public String getPapers() {
+        return papers;
+    }
+
+    public void setPapers(String papers) {
+        this.papers = papers;
+    }
+
     public String getModel() {
         return model;
     }
@@ -162,5 +176,13 @@ public class RegisterCarModel {
 
     public void setNoOfSeat(String noOfSeat) {
         this.noOfSeat = noOfSeat;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

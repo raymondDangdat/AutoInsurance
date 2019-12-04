@@ -55,7 +55,7 @@ public class RegisterCar extends AppCompatActivity {
     private Button btn_upload_img, btn_submit;
     private EditText editTextFName, editTextLName, editTextOName, editTextAddress, editTextOccupation,
     editTextDisability, editTextMake, editTextModel, editTextCapacity, editTextValueInNaira, editTextVUse,
-    editTextPolicyType, editTextNoPlate;
+    editTextPolicyType, editTextNoPlate, editTextBvn;
     private Spinner spinnerNoOfSeats;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,7 @@ public class RegisterCar extends AppCompatActivity {
         editTextFName = findViewById(R.id.editTextFName);
         editTextLName = findViewById(R.id.editTextLName);
         editTextOName = findViewById(R.id.editTextOName);
+        editTextBvn = findViewById(R.id.editTextBvn);
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextOccupation = findViewById(R.id.editTextOccupation);
         editTextDisability = findViewById(R.id.editTextDisability);
@@ -121,6 +122,7 @@ public class RegisterCar extends AppCompatActivity {
         final String fName = editTextFName.getText().toString().trim();
         final String lName = editTextLName.getText().toString().trim();
         final String oName = editTextOName.getText().toString().trim();
+        final String bvn = editTextBvn.getText().toString().trim();
         String address = editTextAddress.getText().toString().trim();
         final String occupation = editTextOccupation.getText().toString().trim();
         final String disablities = editTextDisability.getText().toString().trim();
@@ -132,6 +134,8 @@ public class RegisterCar extends AppCompatActivity {
         final String policyType = editTextPolicyType.getText().toString().trim();
         final String no_of_seat = spinnerNoOfSeats.getSelectedItem().toString().trim();
         final String noPlate = editTextNoPlate.getText().toString().trim();
+        final String papers = "NULL";
+        final String status = "Awaiting Approval";
 
         final long insuranceDate = new Date().getTime();
 
@@ -139,6 +143,8 @@ public class RegisterCar extends AppCompatActivity {
                 || TextUtils.isEmpty(make) || TextUtils.isEmpty(model) || TextUtils.isEmpty(capacity) || TextUtils.isEmpty(value)
                 || TextUtils.isEmpty(use)|| mImageUri == null || TextUtils.isEmpty(policyType) || no_of_seat.equals("Number of Seats") || TextUtils.isEmpty(noPlate)){
             Toast.makeText(this, "Please fill all fields that are not optional", Toast.LENGTH_SHORT).show();
+        }else if (bvn.length() != 11){
+            Toast.makeText(this, "BVN must be 11 digits ", Toast.LENGTH_SHORT).show();
         }else{
             mProgress.show();
             StorageReference filepath = mStorageImage.child(mImageUri.getLastPathSegment());
@@ -148,8 +154,8 @@ public class RegisterCar extends AppCompatActivity {
                     String image_url = taskSnapshot.getDownloadUrl().toString();
 
                     registerCarModel = new RegisterCarModel(insuranceDate,uId,image_url, fName, lName,
-                            oName, occupation, disablities, make, model, capacity, value, use,
-                            policyType, noPlate, no_of_seat);
+                            oName, occupation, disablities, make, papers, model, capacity, value, use,
+                            policyType, noPlate, no_of_seat, status);
                     cars.push().setValue(registerCarModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

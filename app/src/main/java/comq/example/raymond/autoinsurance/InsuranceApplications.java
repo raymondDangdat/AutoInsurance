@@ -2,6 +2,7 @@ package comq.example.raymond.autoinsurance;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -128,6 +129,10 @@ public class InsuranceApplications extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
 
+                        //get crime id to new activity
+                        Intent carDetail = new Intent(InsuranceApplications.this, AdminInsuranceApplicationDetails.class);
+                        carDetail.putExtra("carId", adapter.getRef(position).getKey());
+                        startActivity(carDetail);
                     }
                 });
 
