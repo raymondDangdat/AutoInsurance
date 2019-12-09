@@ -15,5 +15,12 @@
         <item>16</item>
         <item>32</item>
     </string-array>
+
+    <string-array name="policy_type">
+        <item>Select Policy Type</item>
+        <item>Fully Comprehensive</item>
+        <item>Third Party, Fire and Theft</item>
+        <item>Third Party</item>
+    </string-array>
     <string name="title_activity_admin_home">Auto Insurance System</string>
 </resources>

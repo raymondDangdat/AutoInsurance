@@ -6,22 +6,21 @@ public class RegisterCarModel {
     private String car_pic;
     private String fName, lName, oName;
     private String occupation;
-    private String disability;
     private String make;
     private String papers;
-    private String model, capacity, value, use, policyType, noPlate;
+    private String model,  value, use, noPlate;
     private String noOfSeat;
     private String status;
+    private String policyType;
 
     public RegisterCarModel() {
     }
 
     public RegisterCarModel(long insuranceDate, String uId, String car_pic,
-                            String fName, String lName, String oName, String
-                                    occupation, String disability, String make,
-                            String papers, String model, String capacity, String value,
-                            String use, String policyType, String noPlate, String
-                                    noOfSeat, String status) {
+                            String fName, String lName, String oName, String occupation,
+                            String make, String papers, String model, String value, String use,
+                            String noPlate,
+                            String noOfSeat, String status, String policyType) {
         this.insuranceDate = insuranceDate;
         this.uId = uId;
         this.car_pic = car_pic;
@@ -29,17 +28,15 @@ public class RegisterCarModel {
         this.lName = lName;
         this.oName = oName;
         this.occupation = occupation;
-        this.disability = disability;
         this.make = make;
         this.papers = papers;
         this.model = model;
-        this.capacity = capacity;
         this.value = value;
         this.use = use;
-        this.policyType = policyType;
         this.noPlate = noPlate;
         this.noOfSeat = noOfSeat;
         this.status = status;
+        this.policyType = policyType;
     }
 
     public long getInsuranceDate() {
@@ -98,14 +95,6 @@ public class RegisterCarModel {
         this.occupation = occupation;
     }
 
-    public String getDisability() {
-        return disability;
-    }
-
-    public void setDisability(String disability) {
-        this.disability = disability;
-    }
-
     public String getMake() {
         return make;
     }
@@ -130,14 +119,6 @@ public class RegisterCarModel {
         this.model = model;
     }
 
-    public String getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(String capacity) {
-        this.capacity = capacity;
-    }
-
     public String getValue() {
         return value;
     }
@@ -152,14 +133,6 @@ public class RegisterCarModel {
 
     public void setUse(String use) {
         this.use = use;
-    }
-
-    public String getPolicyType() {
-        return policyType;
-    }
-
-    public void setPolicyType(String policyType) {
-        this.policyType = policyType;
     }
 
     public String getNoPlate() {
@@ -184,5 +157,13 @@ public class RegisterCarModel {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getPolicyType() {
+        return policyType;
+    }
+
+    public void setPolicyType(String policyType) {
+        this.policyType = policyType;
     }
 }

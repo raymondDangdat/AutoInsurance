@@ -90,8 +90,22 @@
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textAllCaps="false"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"/>
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/buttonPolicyTerms"
+                android:layout_width="match_parent"
+                android:background="@drawable/rounded_button"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:visibility="visible"
+                android:layout_height="wrap_content"
+                android:text="Read Policy Terms"/>
+
             <TextView
                 android:id="@+id/textviewLogin"
                 android:layout_width="match_parent"

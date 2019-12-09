@@ -102,26 +102,26 @@
                 android:padding="10dp"
                 android:hint="Occupation Optional"/>
 
-            <EditText
-                android:id="@+id/editTextDisability"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:inputType="text"
-                android:background="@drawable/edit_rounded"
-                android:padding="10dp"
-                android:hint="Diabilities (if any) optional"/>
+            <!--<EditText-->
+                <!--android:id="@+id/editTextDisability"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=""-->
+                <!--android:inputType="text"-->
+                <!--android:background="@drawable/edit_rounded"-->
+                <!--android:padding="10dp"-->
+                <!--android:hint="Diabilities (if any) optional"/>-->
 
-            <EditText
-                android:id="@+id/editTextPolicyType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:inputType="text"
-                android:background="@drawable/edit_rounded"
-                android:padding="10dp"
-                android:hint="Policy Type"/>
+            <!--<EditText-->
+                <!--android:id="@+id/editTextPolicyType"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=""-->
+                <!--android:inputType="text"-->
+                <!--android:background="@drawable/edit_rounded"-->
+                <!--android:padding="10dp"-->
+                <!--android:hint="Policy Type"/>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -166,15 +166,15 @@
                 android:hint="Model e.g Benz 240C"/>
 
 
-            <EditText
-                android:id="@+id/editTextCapacity"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:background="@drawable/edit_rounded"
-                android:padding="10dp"
-                android:hint="Capacity"/>
+            <!--<EditText-->
+                <!--android:id="@+id/editTextCapacity"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=""-->
+                <!--android:background="@drawable/edit_rounded"-->
+                <!--android:padding="10dp"-->
+                <!--android:hint="Capacity"/>-->
 
             <Spinner
                 android:id="@+id/no_of_seat"
@@ -182,6 +182,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/number_of_seats">
+            </Spinner>
+
+            <Spinner
+                android:id="@+id/spinner_policy_type"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/policy_type">
             </Spinner>
 
             <EditText

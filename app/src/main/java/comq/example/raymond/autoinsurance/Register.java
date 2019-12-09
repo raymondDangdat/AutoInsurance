@@ -1,12 +1,15 @@
 package comq.example.raymond.autoinsurance;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register extends AppCompatActivity {
     private Toolbar signUpToolBar;
 
-    private Button buttonSignUp;
+    private Button buttonSignUp, buttonPolicyTerms;
     private EditText editTextName, editTextEmail, editTextPassword, editTextCPassword, editTextPhone;
     private TextView textViewLogin;
 
@@ -34,6 +37,8 @@ public class Register extends AppCompatActivity {
 
     private ProgressDialog registerationProgress;
     private String userId = "";
+
+    private Button btnAccept, btnDecline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,7 @@ public class Register extends AppCompatActivity {
         users = FirebaseDatabase.getInstance().getReference().child("autoInsurance").child("users");
 
         buttonSignUp = findViewById(R.id.buttonSignUp);
+        buttonPolicyTerms = findViewById(R.id.buttonPolicyTerms);
         editTextCPassword = findViewById(R.id.editTextCPassword);
         editTextName = findViewById(R.id.editTextName);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -76,10 +82,105 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        buttonPolicyTerms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // policyAlertDialog();
+                showDialog();
+            }
+        });
+
 
 
 
     }
+
+    private void showDialog() {
+
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(Register.this);
+        alertDialog.setTitle("Insurance Policy Terms");
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View policy_term = inflater.inflate(R.layout.policy_dialog, null);
+
+
+//          btnAccept = policy_term.findViewById(R.id.btn_accept);
+//          btnDecline = policy_term.findViewById(R.id.btn_decline);
+
+        alertDialog.setView(policy_term);
+        //alertDialog.setIcon(R.drawable.ic_home_black_24dp);
+//
+//        btnAccept.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                buttonSignUp.setVisibility(View.VISIBLE);
+//                buttonPolicyTerms.setVisibility(View.GONE);
+//                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+//                    @Override
+//                    public void onDismiss(DialogInterface dialog) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//
+//
+//                //chooseImage();
+//            }
+//        });
+//
+//
+//        btnDecline.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //uploadImage();
+//            }
+//        });
+
+        //set button
+        alertDialog.setPositiveButton("ACCEPT", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                buttonSignUp.setVisibility(View.VISIBLE);
+                buttonPolicyTerms.setVisibility(View.GONE);
+                dialog.dismiss();
+                Toast.makeText(Register.this, "You have accepted the policy terms, you can now sign up", Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+        alertDialog.setNegativeButton("DECLINE", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Toast.makeText(Register.this, "You can't proceed without accepting the policy terms", Toast.LENGTH_LONG).show();
+
+            }
+        });
+        alertDialog.show();
+    }
+//
+//    private void policyAlertDialog() {
+//        final AlertDialog.Builder builder = new AlertDialog.Builder(Register.this);
+//        View view = getLayoutInflater().inflate(R.layout.policy_dialog, null);
+//
+////        final Button btn_accept = view.findViewById(R.id.btn_accept);
+////        Button btn_decline = view.findViewById(R.id.btn_decline);
+//
+//        //set onclick listener on login button
+//        btn_accept.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                buttonSignUp.setVisibility(View.VISIBLE);
+//                buttonPolicyTerms.setVisibility(View.GONE);
+//
+//
+//            }
+//        });
+//        builder.setView(view);
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+//    }
+
+
 
     private void registerUser() {
         final String fullName = editTextName.getText().toString().trim();

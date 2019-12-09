@@ -53,7 +53,8 @@
         <activity
             android:name=".InsuranceApplications"
             android:parentActivityName=".AdminHome" />
-        <activity android:name=".AdminInsuranceApplicationDetails"></activity>
+        <activity android:name=".AdminInsuranceApplicationDetails"
+            android:parentActivityName=".InsuranceApplications"/>
     </application>
 
 </manifest>

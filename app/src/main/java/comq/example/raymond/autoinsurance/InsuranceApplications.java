@@ -121,8 +121,8 @@ public class InsuranceApplications extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<RegisterCarModel, ViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull RegisterCarModel model) {
-                holder.make.setText(model.getMake());
-                holder.model.setText(model.getModel());
+                holder.make.setText("Car Make: " + model.getMake());
+                holder.model.setText("Car Model: " + model.getModel());
                 holder.date_insured.setText(InsuranceUtils.dateFromLong(model.getInsuranceDate()));
 
                 holder.setItemClickListener(new ItemClickListener() {

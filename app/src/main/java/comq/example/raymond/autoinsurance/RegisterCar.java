@@ -56,7 +56,7 @@ public class RegisterCar extends AppCompatActivity {
     private EditText editTextFName, editTextLName, editTextOName, editTextAddress, editTextOccupation,
     editTextDisability, editTextMake, editTextModel, editTextCapacity, editTextValueInNaira, editTextVUse,
     editTextPolicyType, editTextNoPlate, editTextBvn;
-    private Spinner spinnerNoOfSeats;
+    private Spinner spinnerNoOfSeats, spinnerPolicyType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,16 +89,16 @@ public class RegisterCar extends AppCompatActivity {
         editTextBvn = findViewById(R.id.editTextBvn);
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextOccupation = findViewById(R.id.editTextOccupation);
-        editTextDisability = findViewById(R.id.editTextDisability);
+        //editTextDisability = findViewById(R.id.editTextDisability);
         editTextMake = findViewById(R.id.editTextMake);
         editTextModel = findViewById(R.id.editTextModel);
-        editTextCapacity = findViewById(R.id.editTextCapacity);
+        //editTextCapacity = findViewById(R.id.editTextCapacity);
         editTextValueInNaira = findViewById(R.id.editTextValueInNaira);
         editTextVUse = findViewById(R.id.editTextUserOfVehicle);
-        editTextPolicyType = findViewById(R.id.editTextPolicyType);
+        //editTextPolicyType = findViewById(R.id.editTextPolicyType);
         editTextNoPlate =findViewById(R.id.editTextNumberPlate);
         spinnerNoOfSeats = findViewById(R.id.no_of_seat);
-
+        spinnerPolicyType = findViewById(R.id.spinner_policy_type);
         btn_upload_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,14 +125,15 @@ public class RegisterCar extends AppCompatActivity {
         final String bvn = editTextBvn.getText().toString().trim();
         String address = editTextAddress.getText().toString().trim();
         final String occupation = editTextOccupation.getText().toString().trim();
-        final String disablities = editTextDisability.getText().toString().trim();
+        //final String disablities = editTextDisability.getText().toString().trim();
         final String make = editTextMake.getText().toString().trim();
         final String model = editTextModel.getText().toString().trim();
-        final String capacity = editTextCapacity.getText().toString().trim();
+//        final String capacity = editTextCapacity.getText().toString().trim();
         final String value = editTextValueInNaira.getText().toString().trim();
         final String use = editTextVUse.getText().toString().trim();
-        final String policyType = editTextPolicyType.getText().toString().trim();
+        //final String policyType = editTextPolicyType.getText().toString().trim();
         final String no_of_seat = spinnerNoOfSeats.getSelectedItem().toString().trim();
+        final String policy_type = spinnerPolicyType.getSelectedItem().toString().trim();
         final String noPlate = editTextNoPlate.getText().toString().trim();
         final String papers = "NULL";
         final String status = "Awaiting Approval";
@@ -140,8 +141,8 @@ public class RegisterCar extends AppCompatActivity {
         final long insuranceDate = new Date().getTime();
 
         if (TextUtils.isEmpty(fName) || TextUtils.isEmpty(lName) || TextUtils.isEmpty(oName) || TextUtils.isEmpty(address)
-                || TextUtils.isEmpty(make) || TextUtils.isEmpty(model) || TextUtils.isEmpty(capacity) || TextUtils.isEmpty(value)
-                || TextUtils.isEmpty(use)|| mImageUri == null || TextUtils.isEmpty(policyType) || no_of_seat.equals("Number of Seats") || TextUtils.isEmpty(noPlate)){
+                || TextUtils.isEmpty(make) || TextUtils.isEmpty(model) || TextUtils.isEmpty(value)
+                || TextUtils.isEmpty(use)|| mImageUri == null  || no_of_seat.equals("Number of Seats") || policy_type.equals("Select Policy Type") || TextUtils.isEmpty(noPlate)){
             Toast.makeText(this, "Please fill all fields that are not optional", Toast.LENGTH_SHORT).show();
         }else if (bvn.length() != 11){
             Toast.makeText(this, "BVN must be 11 digits ", Toast.LENGTH_SHORT).show();
@@ -154,8 +155,7 @@ public class RegisterCar extends AppCompatActivity {
                     String image_url = taskSnapshot.getDownloadUrl().toString();
 
                     registerCarModel = new RegisterCarModel(insuranceDate,uId,image_url, fName, lName,
-                            oName, occupation, disablities, make, papers, model, capacity, value, use,
-                            policyType, noPlate, no_of_seat, status);
+                            oName, occupation, make, papers, model, value, use, noPlate, no_of_seat, status, policy_type);
                     cars.push().setValue(registerCarModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
