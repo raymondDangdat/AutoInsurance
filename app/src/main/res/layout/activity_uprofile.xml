@@ -70,7 +70,7 @@
         <EditText
             android:id="@+id/edt_address"
             android:layout_margin="15dp"
-            android:fontFamily="@font/fonttt"
+            android:fontFamily="cursive"
             android:textStyle="bold"
             android:padding="15dp"
             android:layout_width="match_parent"

@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_cars"
             android:title="Cars Insured" />
         <item
+            android:id="@+id/nav_payments"
+            android:icon="@drawable/ic_payment"
+            android:title="Payments" />
+        <item
             android:id="@+id/nav_insurance_policy"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Insurance Policy" />
@@ -25,7 +29,7 @@
     <item android:title="Settings">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_change_password"
                 android:icon="@drawable/ic_lock"
                 android:title="Change Password" />
             <item

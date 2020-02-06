@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsurancePolicy">
+    tools:context=".AdminInsurancePolicy">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <include
             layout="@layout/app_bar_layout"
@@ -23,12 +22,13 @@
             android:textColor="@color/colorPrimary"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:text="FULLY COMPREHENSIVE"
+            android:text="@string/fully_comprehensive"
             android:fontFamily="@font/fontt"
             />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal"
             android:layout_margin="10dp"
             android:weightSum="2">
@@ -41,32 +41,32 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Car Value in Naira"/>
+                    android:text="@string/car_value_in_naira"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="500000-1500000"/>
+                    android:text="@string/_500000_1500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="1600000-3500000"/>
+                    android:text="@string/_1600000_3500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="3600000-5500000"/>
+                    android:text="@string/_3600000_5500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="5600000-7500000"/>
+                    android:text="@string/_5600000_7500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="7600000-10000000"/>
+                    android:text="@string/_7600000_10000000"/>
 
 
             </LinearLayout>
@@ -79,32 +79,32 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Amount Per Year"/>
+                    android:text="@string/amount_per_year"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="100,000"/>
+                    android:text="@string/_100_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="200,000"/>
+                    android:text="@string/_200_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="300,000"/>
+                    android:text="@string/_300_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="400,000"/>
+                    android:text="@string/_400_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="500,000"/>
+                    android:text="@string/_500_000"/>
 
             </LinearLayout>
 
@@ -118,7 +118,7 @@
             android:textColor="@color/colorPrimary"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:text="THIRD PARTY, FIRE AND THEFT"
+            android:text="@string/third_party_fire_and_theft"
             android:fontFamily="@font/fontt"
             />
         <LinearLayout
@@ -131,37 +131,38 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:layout_weight="1"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Car Value in Naira"/>
+                    android:text="@string/car_value_in_naira"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="500000-1500000"/>
+                    android:text="@string/_500000_1500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="1600000-3500000"/>
+                    android:text="@string/_1600000_3500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="3600000-5500000"/>
+                    android:text="@string/_3600000_5500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="5600000-7500000"/>
+                    android:text="@string/_5600000_7500000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="7600000-10000000"/>
+                    android:text="@string/_7600000_10000000"/>
 
 
             </LinearLayout>
@@ -174,32 +175,32 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Amount Per Year"/>
+                    android:text="@string/amount_per_year"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="70,000"/>
+                    android:text="@string/_70_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="160,000"/>
+                    android:text="@string/_160_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="250,000"/>
+                    android:text="@string/_250_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="360,000"/>
+                    android:text="@string/_360_000"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="450,000"/>
+                    android:text="@string/_450_000"/>
 
             </LinearLayout>
 
@@ -213,7 +214,7 @@
             android:textColor="@color/colorPrimary"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:text="THIRD PARTY"
+            android:text="@string/third_party"
             android:fontFamily="@font/fontt"
             />
         <LinearLayout
@@ -339,11 +340,6 @@
         <!--/>-->
 
         <!--</LinearLayout>-->
-
-
-
     </LinearLayout>
-
-
 
 </ScrollView>

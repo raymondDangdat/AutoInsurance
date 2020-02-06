@@ -56,7 +56,6 @@ public class UProfile extends AppCompatActivity {
         setContentView(R.layout.activity_uprofile);
 
         mProgress = new ProgressDialog(this);
-
         mAuth = FirebaseAuth.getInstance();
         users = FirebaseDatabase.getInstance().getReference().child("autoInsurance").child("users");
         uId = mAuth.getCurrentUser().getUid();

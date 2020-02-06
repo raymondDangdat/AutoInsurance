@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -77,10 +79,136 @@ public class InsuranceApplications extends AppCompatActivity {
 
     }
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.sort_menu, menu);
+        return true;
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_sort) {
+            //display alert to choose sort type
+            showSortDialog();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void showSortDialog() {
+        //Options to display
+        String[] sortOptions = {"Awaiting Approval", "Approved", "Declined"};
+        //create alert dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sort by application status:")
+                .setIcon(R.drawable.ic_sort_black)
+                .setItems(sortOptions, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //the which contains the index position of the selected item
+                        if (which==0){
+                            //Male selected
+                            loadInsuranceApplications();
+                        }else if (which==1){
+                            loadApprovedApplications();
+                        }else if (which==2){
+                            loadDeclinedApplications();
+                            //to be sorted according to chalet number
+                        }
+                    }
+                });
+        builder.show();
+    }
+
+    private void loadDeclinedApplications() {
+        FirebaseRecyclerOptions<RegisterCarModel>options = new FirebaseRecyclerOptions.Builder<RegisterCarModel>()
+                .setQuery(cars.orderByChild("status").equalTo("Declined"), RegisterCarModel.class)
+                .build();
+        adapter = new FirebaseRecyclerAdapter<RegisterCarModel, ViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull RegisterCarModel model) {
+                holder.make.setText("Car Make: " + model.getMake());
+                holder.model.setText("Car Model: " + model.getModel());
+                holder.date_insured.setText(InsuranceUtils.dateFromLong(model.getInsuranceDate()));
+
+                holder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+
+                        //get crime id to new activity
+                        Intent carDetail = new Intent(InsuranceApplications.this, AdminInsuranceApplicationDetails.class);
+                        carDetail.putExtra("carId", adapter.getRef(position).getKey());
+                        startActivity(carDetail);
+                    }
+                });
+
+            }
+
+            @NonNull
+            @Override
+            public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cars_insured, viewGroup,false);
+                ViewHolder viewHolder = new ViewHolder(view);
+                return viewHolder;
+            }
+        };
+        recycler_insurance_application.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+    private void loadApprovedApplications() {
+        FirebaseRecyclerOptions<RegisterCarModel>options = new FirebaseRecyclerOptions.Builder<RegisterCarModel>()
+                .setQuery(cars.orderByChild("status").equalTo("Approved"), RegisterCarModel.class)
+                .build();
+        adapter = new FirebaseRecyclerAdapter<RegisterCarModel, ViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull RegisterCarModel model) {
+                holder.make.setText("Car Make: " + model.getMake());
+                holder.model.setText("Car Model: " + model.getModel());
+                holder.date_insured.setText(InsuranceUtils.dateFromLong(model.getInsuranceDate()));
+
+                holder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+
+                        //get crime id to new activity
+                        Intent carDetail = new Intent(InsuranceApplications.this, AdminInsuranceApplicationDetails.class);
+                        carDetail.putExtra("carId", adapter.getRef(position).getKey());
+                        startActivity(carDetail);
+                    }
+                });
+
+            }
+
+            @NonNull
+            @Override
+            public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cars_insured, viewGroup,false);
+                ViewHolder viewHolder = new ViewHolder(view);
+                return viewHolder;
+            }
+        };
+        recycler_insurance_application.setAdapter(adapter);
+        adapter.startListening();
+    }
+
     private void refreshInsuranceApplications() {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(InsuranceApplications.this);
-        alertDialog.setTitle("Add Crime");
+        alertDialog.setTitle("Refresh");
         alertDialog.setMessage("Please fill the information correctly");
 
         LayoutInflater inflater = this.getLayoutInflater();
@@ -116,7 +244,7 @@ public class InsuranceApplications extends AppCompatActivity {
 
     private void loadInsuranceApplications() {
         FirebaseRecyclerOptions<RegisterCarModel>options = new FirebaseRecyclerOptions.Builder<RegisterCarModel>()
-                .setQuery(cars, RegisterCarModel.class)
+                .setQuery(cars.orderByChild("status").equalTo("Awaiting Approval"), RegisterCarModel.class)
                 .build();
         adapter = new FirebaseRecyclerAdapter<RegisterCarModel, ViewHolder>(options) {
             @Override
@@ -149,6 +277,7 @@ public class InsuranceApplications extends AppCompatActivity {
         recycler_insurance_application.setAdapter(adapter);
         adapter.startListening();
     }
+
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

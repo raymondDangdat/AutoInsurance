@@ -1,14 +1,24 @@
 package comq.example.raymond.autoinsurance;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +33,7 @@ public class AdminInsuranceApplicationDetails extends AppCompatActivity {
 
     private DatabaseReference cars;
 
+    private ProgressDialog dialog;
     private TextView txt_car_owner, txt_receipt, txt_pics, txt_car_make, txt_policy_type, txt_car_model, txt_use, txt_car_cost;
     private Button  btn_approve, btn_decline;
     private ImageView car_picture, img_papers;
@@ -33,6 +44,8 @@ public class AdminInsuranceApplicationDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_insurance_application_details);
+
+        dialog = new ProgressDialog(this);
 
         cars = FirebaseDatabase.getInstance().getReference().child("autoInsurance").child("cars");
 
@@ -67,7 +80,32 @@ public class AdminInsuranceApplicationDetails extends AppCompatActivity {
 
         }
 
+        btn_decline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                declineApplication();
+            }
+        });
 
+
+    }
+
+    private void declineApplication() {
+        dialog.setMessage("Declining...");
+        dialog.show();
+        cars.child(carId).child("status").setValue("Declined").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                dialog.dismiss();
+                Toast.makeText(AdminInsuranceApplicationDetails.this, "Application declined!", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dialog.dismiss();
+                Toast.makeText(AdminInsuranceApplicationDetails.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void getCarDetail(String carId) {
@@ -99,12 +137,37 @@ public class AdminInsuranceApplicationDetails extends AppCompatActivity {
                 }else {
                    img_papers.setVisibility(View.VISIBLE);
                    Picasso.get().load(registerCarModel.getPapers()).into(img_papers);
+                   btn_approve.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View v) {
+                           approveApplication();
+                       }
+                   });
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+    }
+
+    private void approveApplication() {
+        dialog.setMessage("Approving...");
+        dialog.show();
+        cars.child(carId).child("status").setValue("Approved").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                dialog.dismiss();
+                Toast.makeText(AdminInsuranceApplicationDetails.this, "Application Approved", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AdminInsuranceApplicationDetails.this, InsuranceApplications.class));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dialog.dismiss();
+                Toast.makeText(AdminInsuranceApplicationDetails.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

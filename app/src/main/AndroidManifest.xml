@@ -53,8 +53,20 @@
         <activity
             android:name=".InsuranceApplications"
             android:parentActivityName=".AdminHome" />
-        <activity android:name=".AdminInsuranceApplicationDetails"
-            android:parentActivityName=".InsuranceApplications"/>
+        <activity
+            android:name=".AdminInsuranceApplicationDetails"
+            android:parentActivityName=".InsuranceApplications" />
+        <activity
+            android:name=".ClaimReportActivity"
+            android:parentActivityName=".UserHome" />
+        <activity
+            android:name=".AdminInsurancePolicy"
+            android:parentActivityName=".AdminHome" />
+        <activity
+            android:name=".AdminCustomerCare"
+            android:parentActivityName=".AdminHome" />
+        <activity android:name=".PaymentDetailsActivity"
+            android:parentActivityName=".UserHome"/>
     </application>
 
 </manifest>

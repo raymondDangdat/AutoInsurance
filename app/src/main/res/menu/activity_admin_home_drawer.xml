@@ -8,9 +8,9 @@
             android:id="@+id/nav_insurance_application"
             android:icon="@drawable/ic_car"
             android:title="Insurance Applications" />
-        <item
-            android:id="@+id/nav_cars_insured"
-            android:icon="@drawable/ic_cars"
+        <!--<item-->
+            <!--android:id="@+id/nav_cars_insured"-->
+            <!--android:icon="@drawable/ic_cars"-->
             android:title="Cars Insured" />
         <item
             android:id="@+id/nav_insurance_policy"
@@ -28,10 +28,10 @@
                 android:id="@+id/nav_change_password"
                 android:icon="@drawable/ic_lock"
                 android:title="Change Password" />
-            <item
-                android:id="@+id/nav_profile"
-                android:icon="@drawable/ic_settings"
-                android:title="Profile" />
+            <!--<item-->
+                <!--android:id="@+id/nav_profile"-->
+                <!--android:icon="@drawable/ic_settings"-->
+                <!--android:title="Profile" />-->
             <item
                 android:id="@+id/nav_exit"
                 android:icon="@drawable/ic_exit"

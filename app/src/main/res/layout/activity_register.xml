@@ -104,7 +104,7 @@
                 android:textAllCaps="false"
                 android:visibility="visible"
                 android:layout_height="wrap_content"
-                android:text="Read Policy Terms"/>
+                android:text="Read Terms and Conditions"/>
 
             <TextView
                 android:id="@+id/textviewLogin"

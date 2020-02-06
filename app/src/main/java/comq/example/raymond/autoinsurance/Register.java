@@ -98,7 +98,7 @@ public class Register extends AppCompatActivity {
     private void showDialog() {
 
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(Register.this);
-        alertDialog.setTitle("Insurance Policy Terms");
+        alertDialog.setTitle("Terms And Conditions");
 
         LayoutInflater inflater = this.getLayoutInflater();
         View policy_term = inflater.inflate(R.layout.policy_dialog, null);

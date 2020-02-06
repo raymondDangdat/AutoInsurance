@@ -1,42 +1,35 @@
 package comq.example.raymond.autoinsurance.Model;
 
-public class RegisterCarModel {
-    private long insuranceDate;
+public class PaymentModel {
+    private long insuranceDate, paymentDate;
     private String uId;
     private String car_pic;
-    private String fName, lName, oName;
-    private String occupation;
-    private String make;
     private String papers;
+    private String name;
+    private String make;
     private String model;
     private double   value;
+    private double amountPaid;
     private String use, noPlate;
-    private String noOfSeat;
     private String status;
     private String policyType;
 
-    public RegisterCarModel() {
+    public PaymentModel() {
     }
 
-    public RegisterCarModel(long insuranceDate, String uId, String car_pic,
-                            String fName, String lName, String oName, String occupation,
-                            String make, String papers, String model, double value,
-                            String use, String noPlate,
-                            String noOfSeat, String status, String policyType) {
+    public PaymentModel(long insuranceDate, long paymentDate, String uId, String car_pic, String papers, String name, String make, String model, double value, double amountPaid, String use, String noPlate, String status, String policyType) {
         this.insuranceDate = insuranceDate;
+        this.paymentDate = paymentDate;
         this.uId = uId;
         this.car_pic = car_pic;
-        this.fName = fName;
-        this.lName = lName;
-        this.oName = oName;
-        this.occupation = occupation;
-        this.make = make;
         this.papers = papers;
+        this.name = name;
+        this.make = make;
         this.model = model;
         this.value = value;
+        this.amountPaid = amountPaid;
         this.use = use;
         this.noPlate = noPlate;
-        this.noOfSeat = noOfSeat;
         this.status = status;
         this.policyType = policyType;
     }
@@ -47,6 +40,14 @@ public class RegisterCarModel {
 
     public void setInsuranceDate(long insuranceDate) {
         this.insuranceDate = insuranceDate;
+    }
+
+    public long getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(long paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     public String getuId() {
@@ -65,36 +66,20 @@ public class RegisterCarModel {
         this.car_pic = car_pic;
     }
 
-    public String getfName() {
-        return fName;
+    public String getPapers() {
+        return papers;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setPapers(String papers) {
+        this.papers = papers;
     }
 
-    public String getlName() {
-        return lName;
+    public String getName() {
+        return name;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
-    }
-
-    public String getoName() {
-        return oName;
-    }
-
-    public void setoName(String oName) {
-        this.oName = oName;
-    }
-
-    public String getOccupation() {
-        return occupation;
-    }
-
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMake() {
@@ -103,14 +88,6 @@ public class RegisterCarModel {
 
     public void setMake(String make) {
         this.make = make;
-    }
-
-    public String getPapers() {
-        return papers;
-    }
-
-    public void setPapers(String papers) {
-        this.papers = papers;
     }
 
     public String getModel() {
@@ -129,6 +106,14 @@ public class RegisterCarModel {
         this.value = value;
     }
 
+    public double getAmountPaid() {
+        return amountPaid;
+    }
+
+    public void setAmountPaid(double amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
     public String getUse() {
         return use;
     }
@@ -143,14 +128,6 @@ public class RegisterCarModel {
 
     public void setNoPlate(String noPlate) {
         this.noPlate = noPlate;
-    }
-
-    public String getNoOfSeat() {
-        return noOfSeat;
-    }
-
-    public void setNoOfSeat(String noOfSeat) {
-        this.noOfSeat = noOfSeat;
     }
 
     public String getStatus() {

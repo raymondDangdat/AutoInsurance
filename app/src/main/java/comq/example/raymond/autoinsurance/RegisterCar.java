@@ -43,6 +43,8 @@ public class RegisterCar extends AppCompatActivity {
     private Uri mImageUri = null;
     protected String uId = "";
 
+    private double carPrice;
+
     private RegisterCarModel registerCarModel;
 
 
@@ -148,6 +150,10 @@ public class RegisterCar extends AppCompatActivity {
             Toast.makeText(this, "BVN must be 11 digits ", Toast.LENGTH_SHORT).show();
         }else{
             mProgress.show();
+            //value= Double.parseDouble(text);
+
+            carPrice = Double.parseDouble(value);
+            //Toast.makeText(this, ""+carPrice*2, Toast.LENGTH_SHORT).show();
             StorageReference filepath = mStorageImage.child(mImageUri.getLastPathSegment());
             filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -155,7 +161,7 @@ public class RegisterCar extends AppCompatActivity {
                     String image_url = taskSnapshot.getDownloadUrl().toString();
 
                     registerCarModel = new RegisterCarModel(insuranceDate,uId,image_url, fName, lName,
-                            oName, occupation, make, papers, model, value, use, noPlate, no_of_seat, status, policy_type);
+                            oName, occupation, make, papers, model, carPrice, use, noPlate, no_of_seat, status, policy_type);
                     cars.push().setValue(registerCarModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

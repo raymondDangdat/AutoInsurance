@@ -23,4 +23,31 @@
         <item>Third Party</item>
     </string-array>
     <string name="title_activity_admin_home">Auto Insurance System</string>
+    <string name="fully_comprehensive">FULLY COMPREHENSIVE</string>
+    <string name="car_value_in_naira">Car Value in Naira</string>
+    <string name="_500000_1500000">500000-1500000</string>
+    <string name="_1600000_3500000">1600000-3500000</string>
+    <string name="_3600000_5500000">3600000-5500000</string>
+    <string name="_5600000_7500000">5600000-7500000</string>
+    <string name="_7600000_10000000">7600000-10000000</string>
+    <string name="amount_per_year">Amount Per Year</string>
+    <string name="_100_000">100,000</string>
+    <string name="_200_000">200,000</string>
+    <string name="_300_000">300,000</string>
+    <string name="_400_000">400,000</string>
+    <string name="_500_000">500,000</string>
+    <string name="third_party_fire_and_theft">THIRD PARTY, FIRE AND THEFT</string>
+    <string name="car_value_in_naira">Car Value in Naira</string>
+    <string name="_500000_1500000">500000-1500000</string>
+    <string name="_1600000_3500000">1600000-3500000</string>
+    <string name="_3600000_5500000">3600000-5500000</string>
+    <string name="_5600000_7500000">5600000-7500000</string>
+    <string name="_7600000_10000000">7600000-10000000</string>
+    <string name="amount_per_year">Amount Per Year</string>
+    <string name="_70_000">70,000</string>
+    <string name="_160_000">160,000</string>
+    <string name="_250_000">250,000</string>
+    <string name="_360_000">360,000</string>
+    <string name="_450_000">450,000</string>
+    <string name="third_party">THIRD PARTY</string>
 </resources>
